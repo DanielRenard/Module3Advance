@@ -70,7 +70,7 @@
 // which is included in console.log statement
 
 function printMe() {
-    console.log('printing debounced message')
+    console.log()
 }
 
 function debounce(func) {
@@ -78,6 +78,8 @@ function debounce(func) {
     return function wrapper() {
       clearTimeout(timeout);
       timeout = setTimeout(() => func.apply(this, arguments), 1000);
+      msg = 'printing debounced message';
+      return msg
     };
   }
 
