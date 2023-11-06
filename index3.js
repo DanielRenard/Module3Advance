@@ -16,7 +16,7 @@
 // any others ignored.
 
 // create debounce(func) decorator
-// susends calls to func untill 1s of inactivity
+// suspends calls to func untill 1s of inactivity
 // after 1s, most recent call to func executed
 // others ignored
 
@@ -70,7 +70,7 @@
 // which is included in console.log statement
 
 function printMe() {
-    console.log()
+    console.log(msg)
 }
 
 function debounce(func) {
