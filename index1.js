@@ -28,36 +28,11 @@
 // counter starts from (instead of always 
 // starting from 0)
 
-function makeCounter() {
-    let startFrom = 5;
-    // let currentCount = 0; //don't need this
-    return function() {
-       currentCount = startFrom++;
-        console.log(currentCount)
-        return currentCount;
-    };
-}
-
-let counter1 = makeCounter();
-
-counter1(); // 5
-counter1(); // 6
-counter1(); // 
-counter1();
-
-// // c) Modify makeCounter to take another 
-// // argument incrementBy, which specifies how
-// // much each call to counter() should increase
-// // the counter value by.
-
-// // another argument, incrementBy
-// // specifies how much each call to counter()
-
 // function makeCounter() {
-//     let currentCount = 0;
-//     let incrementBy = 6
+//     let startFrom = 5;
+//     // let currentCount = 0; //don't need this
 //     return function() {
-//         currentCount += incrementBy;
+//        currentCount = startFrom++;
 //         console.log(currentCount)
 //         return currentCount;
 //     };
@@ -65,7 +40,29 @@ counter1();
 
 // let counter1 = makeCounter();
 
+// counter1(); // 5
 // counter1(); // 6
-// counter1(); // 12
-// counter1(); // 18
-// counter1(); // 24
+// counter1(); // 7
+// counter1(); // 8
+
+// // c) Modify makeCounter to take another 
+// // argument incrementBy, which specifies how
+// // much each call to counter() should increase
+// // the counter value by.
+
+function makeCounter() {
+    let currentCount = 0;
+    let incrementBy = 6
+    return function() {
+        currentCount += incrementBy;
+        console.log(currentCount)
+        return currentCount;
+    };
+}
+
+let counter1 = makeCounter();
+
+counter1(); // 6
+counter1(); // 12
+counter1(); // 18
+counter1(); // 24
