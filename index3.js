@@ -70,18 +70,18 @@
 // which is included in console.log statement
 
 function printMe(msg) {
-    console.log(msg)
+  console.log(msg)
 }
 
 function debounce(func, ms) {
-    let timeout;
-    return function wrapper() {
-      clearTimeout(timeout);
-      timeout = setTimeout(() => func.apply(this, arguments), ms);
-    };
-  }
+  let timeout;
+  return function wrapper() {
+    clearTimeout(timeout);
+    timeout = setTimeout(() => func.apply(this, arguments), ms);
+  };
+}
 
 printMe = debounce(printMe, 1000)
-setTimeout(() => printMe('I am example msg 1'), 400);
-setTimeout(() => printMe('I am example msg 2'), 200);
-setTimeout(() => printMe('I am example msg 3'), 600);
+setTimeout(() => printMe('Im example msg 1'), 100);
+setTimeout(() => printMe('Im example msg 2'), 200);
+setTimeout(() => printMe('Im example msg 3'), 300);

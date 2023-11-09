@@ -20,6 +20,7 @@
 
 // //   printFibonacci()
 
+
 // b) Write a new version printFibonacciTimeouts() that
 // uses nested setTimeout calls to do the same thing
 
