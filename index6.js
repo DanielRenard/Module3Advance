@@ -5,7 +5,14 @@
 function multiply(a, b) {
     console.log( a * b );
 }
-multiply.delay(500)(5, 5); // prints 25 after 500 milliseconds
+
+// function delay(ms) {
+//     setTimeout(function(){
+//         console.log()
+//     }, ms)
+// }
+
+multiply.delay(1000)(5, 5); // prints 25 after 500 milliseconds
 
 // a) Use the example multiply function below to test it with, as above, and assume that all
 // delayed functions will take two parameters
