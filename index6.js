@@ -2,17 +2,25 @@
 // function to all functions, which can be used to 
 // delay the call to that function by ms milliseconds.
 
+Function.prototype.delay = function(ms) {
+    // console.log(this.value)
+    // return setTimeout(this, ms)
+//    setTimeout((() => { 
+//         return this       
+//     }).bind(this), ms);
+
+}
+
 function multiply(a, b) {
     console.log( a * b );
 }
 
-// function delay(ms) {
-//     setTimeout(function(){
-//         console.log()
-//     }, ms)
-// }
-
 multiply.delay(1000)(5, 5); // prints 25 after 500 milliseconds
+
+// Function.prototype.delay = function(//any arguments here){
+//   //connect the context here
+//   return //what does a function decorator return?  //what arguments should you pass to it?
+// }
 
 // a) Use the example multiply function below to test it with, as above, and assume that all
 // delayed functions will take two parameters

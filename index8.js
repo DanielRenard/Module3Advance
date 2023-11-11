@@ -26,16 +26,73 @@ class DigitalClock {
     this.timer = setInterval(() => this.display(), 1000);
   }
 }
-const myClock = new DigitalClock("my clock:");
-myClock.start();
+// const myClock = new DigitalClock("my clock:");
+// myClock.start();
 
 // a) Create a new class PrecisionClock that inherits from DigitalClock and adds the
 // parameter precision – the number of ms between 'ticks'. This precision parameter
 // should default to 1 second if not supplied.
 
+class PrecisionClock extends DigitalClock {
+  constructor(prefix, precision = 1000) {
+    super(prefix);
+    this.precision = precision;
+  }
+  display() {
+    let date = new Date();
+    //create 3 variables in one go using array destructuring
+    let [hours, mins, secs, milliseconds] = [
+      date.getHours(),
+      date.getMinutes(),
+      date.getSeconds(),
+      date.getMilliseconds()
+    ];
+    if (hours < 10) hours = "0" + hours;
+    if (mins < 10) mins = "0" + mins;
+    if (secs < 10) secs = "0" + secs;
+    if (milliseconds < 10) milliseconds = "0" + milliseconds;
+    console.log(`${this.prefix} ${hours}:${mins}:${secs}:${milliseconds}`);
+  }
+  start() {
+    this.display();
+    this.timer = setInterval(() => this.display(), this.precision);
+  }
+}
 
+// const newClock = new PrecisionClock("tick", 500);
+// newClock.start();
 
 // b) Create a new class AlarmClock that inherits from DigitalClock and adds the
 // parameter wakeupTime in the format hh:mm. When the clock reaches this time, it
 // should print a 'Wake Up' message and stop ticking. This wakeupTime parameter should
 // default to 07:00 if not supplied.
+
+class AlarmClock extends DigitalClock {
+  constructor(prefix, wakeupTime = "7:00") {
+    super(prefix);
+    this.wakeupTime = wakeupTime;
+  }
+  display() {
+    let date = new Date();
+    //create 3 variables in one go using array destructuring
+    let [hours, mins, secs] = [
+      date.getHours(),
+      date.getMinutes(),
+      date.getSeconds(),
+    ];
+    if (hours < 10) hours = "0" + hours;
+    if (mins < 10) mins = "0" + mins;
+    if (secs < 10) secs = "0" + secs;
+    let currentTime = `${hours}:${mins}:${secs}`;
+    if (currentTime.startsWith(this.wakeupTime)) {
+      console.log("Wake Up")
+      this.stop()
+    }
+    else {
+    console.log(`${this.prefix} ${currentTime}`);
+    }
+  }
+}
+
+const newClock2 = new AlarmClock("tick", "14:32");
+newClock2.start();
