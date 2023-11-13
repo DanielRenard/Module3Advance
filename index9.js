@@ -10,13 +10,20 @@
 //returns promise via .then()
 
 function randomDelay() {
+  const seconds = function numberMinMax(min = 1000, max = 20000){
+    const sec = Math.floor(Math.random() * (max - min +1)) + min;
+    console.log(sec);
+    return sec;
+  }
   return new Promise((resolve) => {
     setTimeout(function () {
       // resolve the promise after 1s
       resolve();
-    }, 1000);
+    }, seconds);
   });
 }
+
+
 
 randomDelay().then(() => console.log("There appears to have been a delay."));
 
