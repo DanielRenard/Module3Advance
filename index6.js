@@ -15,7 +15,7 @@ function multiply(a, b) {
     console.log( a * b );
 }
 
-multiply.delay(3000)(5, 5); // prints 25 after 500 milliseconds
+multiply.delay(3000)(5, 5); // prints 25 after 3000 milliseconds
 
 // Function.prototype.delay = function(//any arguments here){
 //   //connect the context here
@@ -39,11 +39,11 @@ Function.prototype.delayPartB = function(ms) {
     }
 }
 
-function multiplyB(a, b, c) {
-    console.log( a * b * c );
+function multiplyB(a, b, c, d) {
+    console.log( a * b * c * d);
 }
 
-multiplyB.delayPartB(3000)(5, 5, 5)
+multiplyB.delayPartB(3000)(5, 5, 5, 5)
 
 // c) Modify multiply to take 4 parameters and multiply all of them, and test that your
 // delay prototype function still works.
