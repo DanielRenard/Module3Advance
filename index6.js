@@ -4,18 +4,18 @@
 
 Function.prototype.delay = function(ms) {
     // console.log(this.value)
-    // return setTimeout(this, ms)
-//    setTimeout((() => { 
-//         return this       
-//     }).bind(this), ms);
-
+    let originalFunction = this
+    return function(argument1, argument2) {
+        setTimeout(originalFunction, ms, argument1, argument2)
+        //function, delay, any additional arguements
+    }
 }
 
 function multiply(a, b) {
     console.log( a * b );
 }
 
-multiply.delay(1000)(5, 5); // prints 25 after 500 milliseconds
+multiply.delay(3000)(5, 5); // prints 25 after 500 milliseconds
 
 // Function.prototype.delay = function(//any arguments here){
 //   //connect the context here
@@ -30,7 +30,20 @@ multiply.delay(1000)(5, 5); // prints 25 after 500 milliseconds
 // b) Use apply to improve your solution so that delayed functions can take any number of
 // parameters
 
+Function.prototype.delayPartB = function(ms) {
+    // console.log(this.value)
+    let originalFunction = this
+    return function() {
+        setTimeout( ()=> originalFunction.apply(this, arguments), ms)
+        //function, delay, any additional arguements
+    }
+}
 
+function multiplyB(a, b, c) {
+    console.log( a * b * c );
+}
+
+multiplyB.delayPartB(3000)(5, 5, 5)
 
 // c) Modify multiply to take 4 parameters and multiply all of them, and test that your
 // delay prototype function still works.
